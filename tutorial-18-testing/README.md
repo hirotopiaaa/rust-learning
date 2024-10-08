@@ -4,12 +4,12 @@
 
 <!-- vim-markdown-toc GFM -->
 
-    * [The Book](#the-book)
-    * [Summary](#summary)
+* [The Book](#the-book)
+* [Summary](#summary)
 * [Notes](#notes)
-    * [Example](#example)
-    * [Running Tests](#running-tests)
-        * [Example](#example-1)
+* [Example](#example)
+* [Running Tests](#running-tests)
+    * [Example](#example-1)
 
 <!-- vim-markdown-toc -->
 
@@ -24,7 +24,7 @@ Chapter 11: Writing Automated Tests
 - Rust has a built-in testing framework that makes it easy to write and run tests.
 - You can write unit tests, integration tests, and documentation tests in Rust.
 
-## Notes
+### Notes
 
 In Rust, testing is built into the language and the standard library. Here's a step-by-step explanation:
 
