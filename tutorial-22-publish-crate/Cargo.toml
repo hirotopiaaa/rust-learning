@@ -1,0 +1,15 @@
+[package]
+name = "tutorial-22-publish-crate"
+version = "0.1.0"
+authors = ["hirotopiaaa"]
+edition = "2021"
+description = "A tutorial project for Rust"
+license = "MIT"
+
+[dependencies]
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3
