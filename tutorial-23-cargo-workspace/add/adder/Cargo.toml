@@ -1,0 +1,9 @@
+[package]
+name = "adder"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# include the add-one crate as a dependency
+add-one = { path = "../add-one" }
+rand = "0.8.4"
