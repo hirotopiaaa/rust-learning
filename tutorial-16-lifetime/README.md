@@ -30,6 +30,9 @@ Lifetimes are a powerful feature in Rust that help ensure memory safety by preve
 
 Using a lifetime annotation in a function signature helps the Rust compiler (borrow checker) understand the relationship between the lifetimes of the parameters and return values. This information is crucial for the compiler to ensure that references are always valid (identify dangling references).
 
+>[!NOTE]
+> A reference lifetime should be shorter than the data it points to
+
 Here's a brief overview:
 
 1. **Basic Concept**: Lifetimes are annotations that tell the Rust compiler how long references should be valid. They are used to prevent dangling references.
