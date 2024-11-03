@@ -1,4 +1,4 @@
-## Tutorial 25 - Concurrency
+## Tutorial 25 - Fearless Concurrency
 
 ## Table of Contents
 
@@ -48,5 +48,9 @@ Concurrency and parallelism are two concepts often used in the context of multit
 Rust only includes one-to-one threading, which means that each thread corresponds to one operating system thread. This is different from languages like Go, which use a many-to-many threading model.
 
 #### Message
+
+A channel is a way to send messages between threads. In Rust, `use std::sync::mpsc`, mpsc stands for multiple producer, single consumer. This module provides a way to create channels for communication between threads. The `Sender` and `Receiver` types allow you to send messages between threads in a thread-safe way. Only one receiver can receive messages from a channel, but multiple senders can send messages.
+
+A channel will close when all senders or all receivers are dropped (i.e., go out of scope or are explicitly dropped).
 
 #### Sharing

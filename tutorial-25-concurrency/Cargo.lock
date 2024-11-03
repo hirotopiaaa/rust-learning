@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "tutorial-19-concurrency"
+name = "tutorial-25-concurrency"
 version = "0.1.0"
