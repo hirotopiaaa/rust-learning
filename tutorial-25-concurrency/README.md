@@ -54,3 +54,19 @@ A channel is a way to send messages between threads. In Rust, `use std::sync::mp
 A channel will close when all senders or all receivers are dropped (i.e., go out of scope or are explicitly dropped).
 
 #### Sharing
+
+Share states refers to the ability to have multiple threads access the same data. Rust provides synchronization primitives to ensure that shared data is accessed safely. These primitives include:
+
+- **Mutex**: A mutual exclusion primitive that allows only one thread to access the data at a time.
+- **RwLock**: A reader-writer lock that allows multiple readers or one writer to access the data at a time.
+- **Arc**: An atomic reference-counted type that allows shared ownership between threads.
+
+One-way data flow is a common pattern in Rust for concurrent programming, where data from a thread is passed to another other thread using message passing rather than shared mutable state. The receiving thread takes ownership of the data, ensuring that only one thread can modify it at a time. Whereas, in shared mutable state concurrency models, multiple threads can access and modify the same data concurrently.
+
+`Mutax` is a mutual exclusion primitive that allows only one thread to access the data at a time. It provides a lock that must be acquired before accessing the data and released after the access is complete. This ensures that only one thread can access and modify the data at a given time. A lock is a data structure that keeps track of whether the data is currently being accessed by a thread. If the data is locked, other threads must wait until the lock is released before they can access the data. Once the thread is done with the data, it can unlock it, allowing other threads to access it. Rust ensures that locks are released correctly, preventing deadlocks thanks to its ownership and borrowing rules.
+
+Mutax uses interior mutability, which allows you to mutate data even when it's immutably borrowed. This is useful when you need to modify data that's shared between threads. However, Mutax enforces borrowing rules at runtime rather than compile time, which can lead to panics if the rules are violated.
+
+Atomic is a concurrency primitive that provides atomic operations, meaning that they are guaranteed to be executed without interruption. This is important in concurrent programming, where multiple threads may try to access and modify the same data at the same time. Atomic operations ensure that the data is updated correctly and consistently, even in the presence of concurrent access.
+
+`Arc` is an atomic reference-counted type that allows shared ownership between threads. It keeps track of the number of references to a value and automatically cleans up the value when the last reference is dropped. This allows multiple threads to share ownership of the same data without worrying about memory safety issues. `Arc` is useful when you need to share data between threads and ensure that it's cleaned up correctly when no longer needed.

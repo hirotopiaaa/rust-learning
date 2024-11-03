@@ -1,4 +1,4 @@
-use std::sync::mpsc;
+use std::sync::{mpsc, Arc, Mutex};
 use std::thread;
 
 fn main() {
@@ -103,4 +103,41 @@ fn main() {
     }
 
     // --- Sharing ---
+    // Example 1
+    // m is a mutex that holds an i32 value
+    let m: Mutex<i32> = Mutex::new(5);
+
+    {
+        // lock the mutex
+        // num is a smart pointer of type MutexGuard<i32>
+        let mut num = m.lock().unwrap();
+        // dereference num to get the value
+        *num = 6;
+        // release the lock when num goes out of scope (automatically)
+    }
+
+    println!("m = {:?}", m);
+
+    // Example 2
+    let counter: Arc<Mutex<i32>> = Arc::new(Mutex::new(0));
+    let mut handles = vec![];
+
+    for _ in 0..10 {
+        let counter = Arc::clone(&counter);
+        let handle = thread::spawn(move || {
+            // lock the mutex
+            let mut num = counter.lock().unwrap();
+            // dereference num to get the value
+            *num += 1;
+        });
+
+        handles.push(handle);
+    }
+
+    // join all the threads to make sure they finish before the main thread
+    for handle in handles {
+        handle.join().unwrap();
+    }
+
+    println!("Result: {}", *counter.lock().unwrap());
 }
