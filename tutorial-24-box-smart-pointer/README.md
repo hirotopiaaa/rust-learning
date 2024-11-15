@@ -23,6 +23,13 @@ Chapter 15: Smart Pointers
 
 In Rust, smart pointers are a type of data structure that not only act as pointers (reference types) but also provide additional capabilities, such as automatic memory management and reference counting. Rust has several types of smart pointers that handle ownership, borrowing, and automatic cleanup in unique ways, which helps manage memory safely and efficiently.
 
+In the nutshell, smart pointers in Rust are:
+
+- Stores data on the heap, and the pointer on the stack
+- Zero performance overhead, but no additional capabilities either
+
+The most common smart pointers in Rust are:
+
 - **Box<T>**: A smart pointer that allows you to store data on the heap rather than the stack. It's useful when you need to allocate memory at runtime or when you have a large amount of data that you want to own.
 - **Rc<T>**: A reference-counted smart pointer that allows multiple owners to share immutable data. It keeps track of the number of references to a value and automatically cleans up the value when the last reference is dropped.
 - **Arc<T>**: An atomic reference-counted smart pointer that allows multiple threads to share immutable data. It's similar to `Rc<T>` but provides thread-safe reference counting using atomic operations.
