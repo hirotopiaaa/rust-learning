@@ -74,10 +74,10 @@ cargo test
 
 This will compile the code in test mode and run all the test functions. The output will show which tests passed and which failed.
 
-If we want to show the console output of the tests, we can use the `-- --show-output` flag:
+If we want to show the console output of the tests, we can use the `--nocapture` flag:
 
 ```sh
-cargo test -- --show-output
+cargo test -- --nocapture
 ```
 
 If we want to only run a specific test function, we run `cargo test` followed by the test function name:
